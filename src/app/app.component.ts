@@ -1,4 +1,3 @@
-import { ThisReceiver } from '@angular/compiler';
 import { Component } from '@angular/core';
 import { PersonajesService } from './Servicios/personajes.service';
 
@@ -18,11 +17,17 @@ export class AppComponent {
   }
 
   ngOnInit(){
-    this.personajesService.getAll()
+    /*this.personajesService.getAll()
     .then(response => {
       this.arrayPersonajes = response['results'];
       this.numPages = response['info']['pages'];
-    })
+    });*/
+
+    this.personajesService.getMessage().subscribe((response) => {
+      this.arrayPersonajes = response['results'];
+      this.numPages = response['info']['pages'];
+    });
+
   }
 
   async changePage(siguiente){

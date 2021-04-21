@@ -14,4 +14,8 @@ export class PersonajesService {
   getAll(page = 1): Promise<any>{
     return this.http.get(`${this.baseUrl}/character?page=${page}`).toPromise();
   }
+
+  getMessage(page  = 1) {
+    return this.http.get(`${this.baseUrl}/character?page=${page}`);
+  }
 }
